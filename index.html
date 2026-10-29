@@ -415,7 +415,7 @@
   </main>
 
   <!-- JavaScript Behavior -->
-  <script>
+<script>
     (function () {
       var $ = function (s, r) { return (r || document).querySelector(s); };
       var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
@@ -600,7 +600,7 @@
       /* Letter Content */
       var LETTER = [
         { t: 'Dear Badmash ladki or tractor wali,' },
-        { t: 'Mere paas kuch hai hi ni kehne ko 😅 or mujhe ni pata ki tumhare paas dost kyu ni hain kyuki tumhari voice is like ki koi boss bol rahi ho wese tumne bataya toh hai apne barein mein mujhe par still it is very hard to believe ki ek 15 saal ki ladki ke sath bhi hota hai aisa par koi ni sab chalta hai bas itna hi tha bolne ko oe ye ek demo hai toh thoda chota jarur hai par badhiya hi hoga shayad  .' },
+        { t: 'Mere paas kuch hai hi ni kehne ko 😅 or mujhe ni pata ki tumhare dost kyu ni hain kyuki tumhari voice is like ki koi boss bol rahi ho wese tumne bataya toh hai apne barein mein mujhe par still it is very hard to believe ki ek 15 saal ki ladki ke sath bhi hota hai aisa par koi ni sab chalta hai bas itna hi tha bolne ko oe ye ek demo hai toh thoda chota jarur hai par badhiya hi hoga shayad .' },
         { t: 'Your anjan friend,\nMayank or may be Raj also', c: 'sign' }
       ];
 
@@ -653,18 +653,18 @@
       $('#rateBtn').addEventListener('click', function () { go('finale'); });
       $('#replayBtn').addEventListener('click', function () { go('ask1'); });
 
-      /* Scene Controller */
+      /* Scene Controller with safe null-checks */
       var ENTER = {
         ask1: function () {
           setMood('smile'); cat.dataset.prop = 'on';
-          $('#askEyebrow').textContent = "There's something I want to ask...";
-          $('#askText').textContent = 'Do you really want to open this 😅 or pls no ko touch bhi mat karna ';
+          var eb = $('#askEyebrow'); if (eb) eb.textContent = "There's something I want to ask...";
+          var at = $('#askText'); if (at) at.textContent = 'Do you really want to open this 😅 or pls no ko touch bhi mat karna ';
           yesBtn.textContent = 'Yes'; noBtn.textContent = 'No';
         },
         ask2: function () {
           setMood('sad'); cat.dataset.prop = 'on';
-          $('#askEyebrow').textContent = 'One more question...';
-          $('#askText').textContent = 'Are you actually taller 😏';
+          var eb = $('#askEyebrow'); if (eb) eb.textContent = 'One more question...';
+          var at = $('#askText'); if (at) at.textContent = 'Are you actually taller 😏';
           yesBtn.textContent = 'No!'; noBtn.textContent = 'Yes';
         },
         prize: function () { setMood('open'); cat.dataset.sparkle = 'on'; setTimeout(function () { burst(innerWidth / 2, innerHeight * 0.3, 70); }, 250); },
