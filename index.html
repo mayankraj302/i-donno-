@@ -3,24 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Special Surprise for Shizuka not barsa 🫠</title>
+<title>A Special Classified Dispatch for Dumbo 🐶</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
   :root {
-    --bg-base: #0c0914;
-    --card-bg: rgba(26, 20, 41, 0.88);
-    --card-border: rgba(255, 120, 180, 0.28);
-    --primary: #ff3377;
-    --primary-glow: rgba(255, 51, 119, 0.45);
+    --bg-base: #0b0914;
+    --card-bg: rgba(23, 18, 38, 0.88);
+    --card-border: rgba(255, 140, 66, 0.28);
+    --primary: #ff5722;
+    --primary-glow: rgba(255, 87, 34, 0.45);
     --accent-yellow: #ffd000;
     --accent-cyan: #00f0ff;
+    --accent-green: #00ffaa;
     --text-main: #f9f7fd;
-    --text-muted: #aba3bd;
-    --paper-bg: #fffdf6;
-    --ink-color: #2b111e;
+    --text-muted: #aca4be;
+    --paper-bg: #fffcf5;
+    --ink-color: #26162a;
     --font-heading: 'Outfit', -apple-system, sans-serif;
     --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
     --font-hand: 'Caveat', cursive;
@@ -38,115 +39,93 @@
     line-height: 1.5;
   }
 
-  /* Cyber/Playful Ambient Grid Background */
+  /* Ambient Grid Background */
   .bg-grid {
     position: fixed; inset: 0; pointer-events: none; z-index: 0;
     background-image: 
-      radial-gradient(circle at 15% 15%, rgba(255, 51, 119, 0.16) 0%, transparent 45%),
-      radial-gradient(circle at 85% 85%, rgba(157, 78, 221, 0.18) 0%, transparent 50%),
+      radial-gradient(circle at 18% 18%, rgba(255, 87, 34, 0.16) 0%, transparent 45%),
+      radial-gradient(circle at 82% 82%, rgba(157, 78, 221, 0.18) 0%, transparent 50%),
       radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.08) 0%, transparent 60%),
       linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     background-size: 100% 100%, 100% 100%, 100% 100%, 36px 36px, 36px 36px;
   }
 
-  /* Floating background elements */
+  /* Floating Paw & Sparkle Emojis */
   .floating-emojis {
     position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden;
   }
   .floating-emoji {
     position: absolute; bottom: -50px;
     font-size: 24px; opacity: 0.15;
-    animation: floatUp 16s linear infinite;
+    animation: floatUp 15s linear infinite;
   }
   @keyframes floatUp {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0.2; }
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.15; }
     50% { opacity: 0.35; }
     100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
   }
 
-  /* Audio & Navigation Top Bar (Clean, no mood bar) */
-  .top-hud {
-    position: fixed; top: 14px; left: 0; right: 0; z-index: 50;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 0 20px; max-width: 520px; margin: 0 auto;
-  }
-  .hud-badge {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 99px;
-    padding: 6px 14px;
-    display: flex; align-items: center; gap: 8px;
-    font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
-    color: var(--accent-yellow);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  }
-  .hud-badge .pulse-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: #ff3377;
-    box-shadow: 0 0 10px #ff3377;
-    animation: livePulse 1.2s infinite alternate;
-  }
-  @keyframes livePulse { 0% { transform: scale(0.8); opacity: 0.6; } 100% { transform: scale(1.3); opacity: 1; } }
-
+  /* Clean Sound Button at Top Right */
   .sound-btn {
+    position: fixed; top: 18px; right: 20px; z-index: 50;
     background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     color: var(--text-main);
-    width: 38px; height: 38px; border-radius: 50%;
+    width: 42px; height: 42px; border-radius: 50%;
     display: grid; place-items: center; cursor: pointer;
-    font-size: 16px; backdrop-filter: blur(10px);
-    transition: all 0.2s;
+    font-size: 18px; backdrop-filter: blur(12px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.25s cubic-bezier(0.2, 1, 0.3, 1);
   }
-  .sound-btn:hover { background: rgba(255, 255, 255, 0.2); transform: scale(1.08); }
+  .sound-btn:hover { background: rgba(255, 255, 255, 0.2); transform: scale(1.1); }
 
   /* Main Wrapper */
   .main-app {
     position: relative; z-index: 10;
     min-height: 100vh;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 70px 16px 25px;
+    padding: 60px 16px 30px;
   }
 
   .stage-box {
-    width: 100%; max-width: 460px;
+    width: 100%; max-width: 470px;
     background: var(--card-bg);
     border: 1.5px solid var(--card-border);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(24px);
     border-radius: 28px;
-    padding: 26px 22px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 35px var(--primary-glow);
+    padding: 28px 22px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 40px var(--primary-glow);
     display: flex; flex-direction: column; align-items: center; text-align: center;
     position: relative; overflow: hidden;
   }
 
-  /* Cat Mascot Container */
+  /* Dog Mascot Container */
   .mascot-area {
-    width: 135px; height: 135px; margin: 6px 0 14px;
+    width: 145px; height: 145px; margin: 4px 0 16px;
     position: relative;
   }
-  .cat-svg {
+  .dog-svg {
     width: 100%; height: 100%; overflow: visible;
-    filter: drop-shadow(0 10px 18px rgba(0,0,0,0.45));
-    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    filter: drop-shadow(0 12px 20px rgba(0,0,0,0.5));
+    transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
-  .cat-bubble {
-    position: absolute; top: -14px; right: -24px;
-    background: var(--accent-yellow); color: #1a0826;
+  .dog-bubble {
+    position: absolute; top: -14px; right: -28px;
+    background: var(--accent-yellow); color: #160822;
     font-weight: 800; font-size: 11px;
-    padding: 4px 10px; border-radius: 99px;
+    padding: 5px 12px; border-radius: 99px;
     border: 2px solid #000;
     box-shadow: 2px 2px 0 #000;
     transform: rotate(6deg);
-    animation: bounceBubble 2s infinite ease-in-out;
+    animation: bounceBubble 2.2s infinite ease-in-out;
   }
-  @keyframes bounceBubble { 0%, 100% { transform: rotate(6deg) translateY(0); } 50% { transform: rotate(6deg) translateY(-4px); } }
+  @keyframes bounceBubble { 0%, 100% { transform: rotate(6deg) translateY(0); } 50% { transform: rotate(6deg) translateY(-5px); } }
 
-  /* Scene Transitions */
+  /* Scenes */
   .scene {
     width: 100%; display: flex; flex-direction: column; align-items: center;
-    animation: sceneIn 0.4s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+    animation: sceneIn 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
   @keyframes sceneIn {
     0% { opacity: 0; transform: translateY(18px) scale(0.96); }
@@ -157,21 +136,21 @@
   /* Typography */
   .badge-tag {
     font-size: 11px; font-weight: 800; text-transform: uppercase;
-    letter-spacing: 0.1em; padding: 4px 12px; border-radius: 99px;
-    background: rgba(255, 51, 119, 0.2); color: #ff70a6;
-    border: 1px solid rgba(255, 51, 119, 0.35);
-    margin-bottom: 8px;
+    letter-spacing: 0.1em; padding: 4px 13px; border-radius: 99px;
+    background: rgba(255, 87, 34, 0.18); color: #ff9e80;
+    border: 1px solid rgba(255, 87, 34, 0.38);
+    margin-bottom: 9px;
   }
   h1, h2, h3 {
     font-family: var(--font-heading);
     font-weight: 800; line-height: 1.25;
     letter-spacing: -0.02em;
   }
-  .title-lg { font-size: 1.55rem; margin-bottom: 8px; color: #fff; }
-  .title-highlight { color: var(--primary); text-shadow: 0 0 18px var(--primary-glow); }
+  .title-lg { font-size: 1.6rem; margin-bottom: 8px; color: #fff; }
+  .title-highlight { color: #ff8c42; text-shadow: 0 0 20px rgba(255, 140, 66, 0.5); }
   .desc-text {
-    color: var(--text-muted); font-size: 0.94rem; margin-bottom: 18px;
-    line-height: 1.5;
+    color: var(--text-muted); font-size: 0.94rem; margin-bottom: 20px;
+    line-height: 1.52;
   }
 
   /* Buttons & Action Controls */
@@ -179,31 +158,31 @@
     display: flex; flex-direction: column; gap: 10px; width: 100%;
   }
   .btn-primary {
-    background: linear-gradient(135deg, #ff3377, #d90429);
-    color: #fff; border: none; padding: 13px 22px;
+    background: linear-gradient(135deg, #ff6b35, #d9381e);
+    color: #fff; border: none; padding: 14px 24px;
     border-radius: 16px; font-family: var(--font-heading);
     font-weight: 700; font-size: 1rem; cursor: pointer;
-    box-shadow: 0 6px 20px rgba(255, 51, 119, 0.4), inset 0 1px 0 rgba(255,255,255,0.3);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.42), inset 0 1px 0 rgba(255,255,255,0.3);
     display: flex; align-items: center; justify-content: center; gap: 8px;
-    transition: all 0.2s cubic-bezier(0.2, 1, 0.3, 1);
+    transition: all 0.22s cubic-bezier(0.2, 1, 0.3, 1);
   }
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 9px 25px rgba(255, 51, 119, 0.55);
+    box-shadow: 0 9px 28px rgba(255, 107, 53, 0.58);
   }
   .btn-primary:active { transform: translateY(1px); }
 
   .btn-secondary {
     background: rgba(255, 255, 255, 0.08);
     color: var(--text-main);
-    border: 1.5px solid rgba(255, 255, 255, 0.15);
-    padding: 12px 20px; border-radius: 16px;
+    border: 1.5px solid rgba(255, 255, 255, 0.16);
+    padding: 13px 22px; border-radius: 16px;
     font-family: var(--font-heading); font-weight: 700;
     font-size: 0.95rem; cursor: pointer;
     transition: all 0.2s;
   }
   .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.15);
     border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-2px);
   }
@@ -244,33 +223,33 @@
   }
   .quiz-text { font-weight: 600; font-size: 0.92rem; color: #eee; flex: 1; }
 
-  /* The Unclickable Runaway Button */
+  /* The Runaway Button Arena */
   .teleport-arena {
-    position: relative; width: 100%; min-height: 110px;
-    border: 1.5px dashed rgba(255, 255, 255, 0.15);
-    border-radius: 18px; margin: 12px 0 16px;
+    position: relative; width: 100%; min-height: 125px;
+    border: 1.5px dashed rgba(255, 255, 255, 0.16);
+    border-radius: 18px; margin: 10px 0 16px;
     display: flex; align-items: center; justify-content: center;
     overflow: hidden;
   }
   .sneaky-btn {
     position: absolute;
-    background: #ffd000; color: #1a0826;
+    background: #ffd000; color: #160822;
     border: 2px solid #000; box-shadow: 0 4px 0 #000;
-    padding: 10px 18px; border-radius: 99px;
-    font-weight: 800; font-size: 0.9rem; cursor: pointer;
-    transition: transform 0.18s ease-out, left 0.18s ease-out, top 0.18s ease-out;
+    padding: 11px 20px; border-radius: 99px;
+    font-weight: 800; font-size: 0.92rem; cursor: pointer;
+    transition: transform 0.16s ease-out, left 0.16s ease-out, top 0.16s ease-out;
     white-space: nowrap; z-index: 5;
   }
 
-  /* Fake CAPTCHA Grid */
+  /* Friendship CAPTCHA Grid */
   .captcha-box {
     width: 100%; border: 1.5px solid rgba(255,255,255,0.12);
     border-radius: 18px; background: rgba(0,0,0,0.3);
     padding: 14px; margin-bottom: 14px;
   }
   .captcha-header {
-    background: #ff3377; color: #fff;
-    padding: 10px 12px; border-radius: 10px;
+    background: linear-gradient(135deg, #ff5722, #e64a19);
+    color: #fff; padding: 10px 12px; border-radius: 10px;
     font-weight: 800; font-size: 12px; text-transform: uppercase;
     letter-spacing: 0.05em; text-align: left; margin-bottom: 12px;
   }
@@ -280,19 +259,19 @@
   .captcha-tile {
     background: rgba(255,255,255,0.05); border: 2px solid transparent;
     border-radius: 12px; padding: 12px 8px; cursor: pointer;
-    font-size: 12.5px; font-weight: 600; text-align: center;
+    font-size: 12px; font-weight: 600; text-align: center;
     display: flex; flex-direction: column; align-items: center; gap: 6px;
     transition: all 0.2s;
   }
   .captcha-tile:hover { background: rgba(255,255,255,0.1); transform: scale(1.02); }
   .captcha-tile.selected {
     border-color: var(--accent-cyan);
-    background: rgba(0, 240, 255, 0.15);
+    background: rgba(0, 240, 255, 0.16);
     color: #fff;
   }
   .tile-icon { font-size: 26px; }
 
-  /* Fake Vault / Safe Scene */
+  /* Vault Animation */
   .vault-visual {
     width: 140px; height: 140px; margin: 10px auto 16px;
     position: relative;
@@ -306,7 +285,7 @@
     50% { transform: translateY(-6px) rotate(1deg); }
   }
   .vault-safe.shake-safe {
-    animation: safeRumble 0.5s ease infinite;
+    animation: safeRumble 0.45s ease infinite;
   }
   @keyframes safeRumble {
     0%, 100% { transform: translate(0, 0) scale(1); }
@@ -315,31 +294,29 @@
     75% { transform: translate(-2px, -2px) scale(1.02); }
   }
 
-  /* Fake Gift Reveal (The Joke Prize) */
+  /* Fake Troll Prize Card */
   .fake-prize-card {
-    background: linear-gradient(135deg, rgba(255,208,0,0.15), rgba(255,51,119,0.15));
+    background: linear-gradient(135deg, rgba(255,208,0,0.16), rgba(255,87,34,0.18));
     border: 2px solid var(--accent-yellow);
-    border-radius: 20px; padding: 18px; margin: 12px 0 16px;
+    border-radius: 20px; padding: 20px 18px; margin: 12px 0 16px;
     width: 100%; position: relative; overflow: hidden;
   }
   .fake-prize-tag {
     position: absolute; top: 12px; right: -28px;
-    background: #ff3377; color: #fff; font-size: 10px; font-weight: 800;
+    background: #ff5722; color: #fff; font-size: 10px; font-weight: 800;
     text-transform: uppercase; padding: 3px 30px; transform: rotate(45deg);
   }
   .trophy-icon { font-size: 48px; margin-bottom: 6px; display: block; }
 
-  /* REAL LETTER (Aesthetic Parchment / Keepsake) */
-  .letter-envelope {
-    width: 100%; margin: 8px 0;
-  }
+  /* Real Parchment Letter */
+  .letter-envelope { width: 100%; margin: 8px 0; }
   .parchment {
     background: var(--paper-bg);
     color: var(--ink-color);
-    border-radius: 18px;
-    padding: 22px 20px 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.4), inset 0 0 20px rgba(220, 190, 140, 0.4);
-    border: 2px solid #e6d3ba;
+    border-radius: 20px;
+    padding: 24px 20px 22px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.45), inset 0 0 20px rgba(220, 190, 140, 0.4);
+    border: 2px solid #e8d5bc;
     position: relative;
     text-align: left;
     transform-origin: top center;
@@ -350,22 +327,22 @@
     100% { transform: scale(1) rotateX(0deg); opacity: 1; }
   }
   .parchment::before {
-    content: "🌸 OFFICIAL FRIENDSHIP ARCHIVE 🌸";
+    content: "🐾 OFFICIAL NEW FRIENDSHIP TREATY 🐾";
     display: block; text-align: center;
     font-size: 11px; font-weight: 800; letter-spacing: 0.14em;
-    color: #9d4edd; border-bottom: 1.5px dashed #dab894;
-    padding-bottom: 8px; margin-bottom: 12px;
+    color: #e65100; border-bottom: 1.5px dashed #dab894;
+    padding-bottom: 8px; margin-bottom: 14px;
   }
   .letter-salutation {
     font-family: var(--font-heading);
-    font-weight: 800; font-size: 1.25rem; color: #d90429;
+    font-weight: 800; font-size: 1.3rem; color: #d84315;
     margin-bottom: 10px;
   }
   .letter-body {
     font-family: var(--font-hand);
     font-size: 1.35rem; line-height: 1.55;
     color: #2b111e;
-    max-height: 290px; overflow-y: auto;
+    max-height: 300px; overflow-y: auto;
     padding-right: 6px;
   }
   .letter-body::-webkit-scrollbar { width: 4px; }
@@ -374,15 +351,15 @@
   .letter-sign {
     font-family: var(--font-hand);
     font-size: 1.45rem; font-weight: 700;
-    text-align: right; color: #7209b7;
+    text-align: right; color: #6a1b9a;
     margin-top: 14px;
   }
   .letter-stamp {
     position: absolute; bottom: 14px; left: 16px;
-    border: 2px solid #ff3377; border-radius: 8px;
+    border: 2px solid #ff5722; border-radius: 8px;
     padding: 3px 8px; font-size: 10px; font-weight: 800;
-    color: #ff3377; text-transform: uppercase; transform: rotate(-10deg);
-    opacity: 0.85;
+    color: #ff5722; text-transform: uppercase; transform: rotate(-10deg);
+    opacity: 0.88;
   }
 
   /* Canvas Confetti */
@@ -394,10 +371,9 @@
   /* Keepsake Card Canvas (Hidden for export) */
   #certCanvas { display: none; }
 
-  /* Responsive tweak */
   @media (max-width: 420px) {
-    .stage-box { padding: 20px 16px; border-radius: 22px; }
-    .title-lg { font-size: 1.35rem; }
+    .stage-box { padding: 22px 16px; border-radius: 22px; }
+    .title-lg { font-size: 1.38rem; }
     .letter-body { font-size: 1.25rem; }
   }
 </style>
@@ -409,262 +385,264 @@
 <canvas id="confettiCanvas"></canvas>
 <canvas id="certCanvas" width="800" height="600"></canvas>
 
-<!-- Top HUD (Clean: Live Status + Sound Toggle) -->
-<header class="top-hud">
-  <div class="hud-badge">
-    <div class="pulse-dot"></div>
-    <span>MISSION: ROAST BARSA 😏</span>
-  </div>
-  <button class="sound-btn" id="soundToggle" title="Audio Toggle">🔊</button>
-</header>
+<!-- Clean Sound Toggle Button on Top Right (No annoying top popup) -->
+<button class="sound-btn" id="soundToggle" title="Audio Toggle">🔊</button>
 
 <main class="main-app">
   <div class="stage-box" id="mainBox">
 
-    <!-- Animated Interactive Cat Mascot -->
+    <!-- Expressive Puppy / Dog Mascot -->
     <div class="mascot-area">
-      <span class="cat-bubble" id="catBubble">Hehe 😏</span>
-      <svg class="cat-svg" id="catSvg" viewBox="0 0 200 180" role="img" aria-label="Cat Mascot">
-        <!-- Ears -->
-        <polygon points="35,80 30,20 85,45" fill="#ffd166" stroke="#221128" stroke-width="4" stroke-linejoin="round"/>
-        <polygon points="45,68 40,32 75,48" fill="#ff99c8"/>
-        <polygon points="165,80 170,20 115,45" fill="#ffd166" stroke="#221128" stroke-width="4" stroke-linejoin="round"/>
-        <polygon points="155,68 160,32 125,48" fill="#ff99c8"/>
+      <span class="dog-bubble" id="dogBubble">Hehe 😏</span>
+      <svg class="dog-svg" id="dogSvg" viewBox="0 0 200 185" role="img" aria-label="Puppy Mascot">
+        <!-- Floppy Ears (Dynamic Bounce) -->
+        <g id="dogEarL">
+          <ellipse cx="44" cy="75" rx="20" ry="42" fill="#8d5b4c" stroke="#221128" stroke-width="4" transform="rotate(-15 44 75)"/>
+          <ellipse cx="44" cy="78" rx="12" ry="30" fill="#ffab91" transform="rotate(-15 44 78)"/>
+        </g>
+        <g id="dogEarR">
+          <ellipse cx="156" cy="75" rx="20" ry="42" fill="#8d5b4c" stroke="#221128" stroke-width="4" transform="rotate(15 156 75)"/>
+          <ellipse cx="156" cy="78" rx="12" ry="30" fill="#ffab91" transform="rotate(15 156 78)"/>
+        </g>
 
-        <!-- Body & Paws -->
-        <ellipse cx="100" cy="155" rx="58" ry="32" fill="#ffd166" stroke="#221128" stroke-width="4"/>
-        <ellipse cx="65" cy="165" rx="16" ry="10" fill="#fff" stroke="#221128" stroke-width="3"/>
-        <ellipse cx="135" cy="165" rx="16" ry="10" fill="#fff" stroke="#221128" stroke-width="3"/>
+        <!-- Body & Front Paws -->
+        <ellipse cx="100" cy="156" rx="56" ry="30" fill="#d7a15c" stroke="#221128" stroke-width="4"/>
+        <ellipse cx="68" cy="166" rx="16" ry="10" fill="#fffaf0" stroke="#221128" stroke-width="3"/>
+        <ellipse cx="132" cy="166" rx="16" ry="10" fill="#fffaf0" stroke="#221128" stroke-width="3"/>
+        <!-- Paw pads -->
+        <circle cx="68" cy="166" r="3" fill="#ff8a65"/>
+        <circle cx="132" cy="166" r="3" fill="#ff8a65"/>
 
         <!-- Head -->
-        <ellipse cx="100" cy="98" rx="66" ry="52" fill="#ffd166" stroke="#221128" stroke-width="4"/>
+        <ellipse cx="100" cy="96" rx="64" ry="54" fill="#d7a15c" stroke="#221128" stroke-width="4"/>
+        
+        <!-- White Fur Patch on Face -->
+        <path d="M85,55 Q100,75 115,55 Q125,105 100,126 Q75,105 85,55 Z" fill="#fffaf0" opacity="0.95"/>
+
         <!-- Cute Blushes -->
-        <ellipse cx="58" cy="112" rx="10" ry="6" fill="#ff70a6" opacity="0.75"/>
-        <ellipse cx="142" cy="112" rx="10" ry="6" fill="#ff70a6" opacity="0.75"/>
+        <ellipse cx="56" cy="112" rx="10" ry="6" fill="#ff7043" opacity="0.6"/>
+        <ellipse cx="144" cy="112" rx="10" ry="6" fill="#ff7043" opacity="0.6"/>
 
-        <!-- Eyes Group (Dynamic Moods) -->
-        <g id="catEyesNormal">
-          <ellipse cx="74" cy="92" rx="12" ry="14" fill="#fff" stroke="#221128" stroke-width="3.5"/>
-          <ellipse id="pupilL" cx="75" cy="93" rx="7" ry="8" fill="#221128"/>
-          <circle cx="78" cy="89" r="3" fill="#fff"/>
+        <!-- Eyes Group (Normal / Following Cursor) -->
+        <g id="dogEyesNormal">
+          <ellipse cx="74" cy="88" rx="12" ry="14" fill="#fff" stroke="#221128" stroke-width="3.5"/>
+          <ellipse id="pupilL" cx="75" cy="89" rx="7" ry="8" fill="#221128"/>
+          <circle cx="78" cy="85" r="3" fill="#fff"/>
           
-          <ellipse cx="126" cy="92" rx="12" ry="14" fill="#fff" stroke="#221128" stroke-width="3.5"/>
-          <ellipse id="pupilR" cx="125" cy="93" rx="7" ry="8" fill="#221128"/>
-          <circle cx="128" cy="89" r="3" fill="#fff"/>
+          <ellipse cx="126" cy="88" rx="12" ry="14" fill="#fff" stroke="#221128" stroke-width="3.5"/>
+          <ellipse id="pupilR" cx="125" cy="89" rx="7" ry="8" fill="#221128"/>
+          <circle cx="128" cy="85" r="3" fill="#fff"/>
         </g>
 
-        <!-- Sunglasses for cool cat mode -->
-        <g id="catShades" style="display:none;">
-          <polygon points="50,80 95,80 90,105 55,103" fill="#111" stroke="#00f0ff" stroke-width="3"/>
-          <polygon points="105,80 150,80 145,103 110,105" fill="#111" stroke="#00f0ff" stroke-width="3"/>
-          <line x1="95" y1="88" x2="105" y2="88" stroke="#111" stroke-width="5"/>
-          <!-- Lens Glare -->
-          <line x1="60" y1="85" x2="80" y2="100" stroke="#fff" stroke-width="2.5" opacity="0.7"/>
-          <line x1="115" y1="85" x2="135" y2="100" stroke="#fff" stroke-width="2.5" opacity="0.7"/>
+        <!-- Cute Aviator Sunglasses for Cool Mode -->
+        <g id="dogShades" style="display:none;">
+          <polygon points="48,76 96,76 90,104 54,102" fill="#111" stroke="#ffd000" stroke-width="3"/>
+          <polygon points="104,76 152,76 146,102 110,104" fill="#111" stroke="#ffd000" stroke-width="3"/>
+          <line x1="96" y1="84" x2="104" y2="84" stroke="#ffd000" stroke-width="4"/>
+          <line x1="58" y1="81" x2="80" y2="98" stroke="#fff" stroke-width="2.5" opacity="0.75"/>
+          <line x1="114" y1="81" x2="136" y2="98" stroke="#fff" stroke-width="2.5" opacity="0.75"/>
         </g>
 
-        <!-- Surrender White Flag -->
-        <g id="catFlag" style="display:none;" transform="translate(140, 40)">
-          <line x1="0" y1="0" x2="0" y2="110" stroke="#888" stroke-width="4"/>
-          <polygon points="0,5 50,22 0,40" fill="#ffffff" stroke="#221128" stroke-width="3"/>
-          <text x="10" y="26" font-size="12" font-weight="bold" fill="#ff2255">MAAF!</text>
+        <!-- Surrender White Flag Mode -->
+        <g id="dogFlag" style="display:none;" transform="translate(142, 38)">
+          <line x1="0" y1="0" x2="0" y2="115" stroke="#888" stroke-width="4"/>
+          <polygon points="0,6 52,24 0,42" fill="#ffffff" stroke="#221128" stroke-width="3"/>
+          <text x="8" y="28" font-size="11" font-weight="900" fill="#ff3366">TRUCE!</text>
         </g>
 
-        <!-- Nose & Mouth -->
-        <polygon points="96,108 104,108 100,113" fill="#ff5d8f"/>
-        <path id="catMouth" d="M88,118 Q94,127 100,118 Q106,127 112,118" fill="none" stroke="#221128" stroke-width="3.5" stroke-linecap="round"/>
-
-        <!-- Whiskers -->
-        <line x1="38" y1="104" x2="16" y2="101" stroke="#221128" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="39" y1="114" x2="18" y2="118" stroke="#221128" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="162" y1="104" x2="184" y2="101" stroke="#221128" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="161" y1="114" x2="182" y2="118" stroke="#221128" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Snout, Nose & Tongue -->
+        <ellipse cx="100" cy="116" rx="24" ry="18" fill="#fffaf0" stroke="#221128" stroke-width="2.5"/>
+        <!-- Heart Shaped Nose -->
+        <path d="M93,108 C93,103 98,103 100,107 C102,103 107,103 107,108 C107,114 100,118 100,118 C100,118 93,114 93,108 Z" fill="#221128"/>
+        
+        <!-- Mouth & Derpy Tongue -->
+        <path id="dogMouth" d="M92,118 Q100,126 108,118" fill="none" stroke="#221128" stroke-width="3.5" stroke-linecap="round"/>
+        <path id="dogTongue" d="M96,122 Q100,135 104,122 Z" fill="#ff5252" stroke="#221128" stroke-width="2" style="display:none;"/>
       </svg>
     </div>
 
-    <!-- ================= SCENE 0: INTRO IN HINGLISH ================= -->
+    <!-- ================= SCENE 0: INTRO TEASE ================= -->
     <section class="scene" id="sceneIntro">
-      <span class="badge-tag">You know what time it is 😏</span>
-      <h1 class="title-lg">Sun pagal <span class="title-highlight">Barsa!</span> 👋</h1>
+      <span class="badge-tag">Incoming Alert ⚡</span>
+      <h1 class="title-lg">Sun <span class="title-highlight">Dumbo!</span> 👋</h1>
       <p class="desc-text">
-        Tumhare liye kuch banaya tha mera man ni tha dikhane ka 😒 par koi ni ready ho jao.
+        Maine socha ek special warning bhej du... par galti se bhi neeche wala button mat dabana! 😒
       </p>
       <div class="btn-group">
         <button class="btn-primary" id="btnStart">
-          <span>Mat dabana button 🥲</span>
+          <span>Mat dabana bilkul bhi 🥲</span>
         </button>
       </div>
     </section>
 
-    <!-- ================= SCENE 1: BIOMETRIC / IDENTITY ROAST IN HINGLISH ================= -->
+    <!-- ================= SCENE 1: IDENTITY CHECK ================= -->
     <section class="scene" id="sceneQuiz1" hidden>
-      <span class="badge-tag">Security Check 01</span>
-      <h2 class="title-lg">Tum shizuka hi ho ki ni </h2>
-      <p class="desc-text">Scientifically batao, Barsa ka asli nature kaisa hai?</p>
+      <span class="badge-tag">Verification 01 • Bio-Check</span>
+      <h2 class="title-lg">Pehle Confirm Karo... 🤔</h2>
+      <p class="desc-text">Scientifically batao, tum aakhir kis category me aate ho?</p>
 
       <div class="quiz-options">
         <div class="quiz-card" data-ans="wrong">
           <div class="quiz-key">A</div>
-          <div class="quiz-text">Ekdum shaant, masoom pari jo kabhi gussa nahi hoti 😏</div>
+          <div class="quiz-text">Ekdum serious aur mature insaan jo kabhi drama nahi karta 😇</div>
         </div>
         <div class="quiz-card" data-ans="correct">
           <div class="quiz-key">B</div>
-          <div class="quiz-text">Hamesha doosro ki pitti karne wali shizuka 😰</div>
+          <div class="quiz-text">Hamesha ready rehne wala pro namoona (aka Certified Dumbo) 🫠</div>
         </div>
         <div class="quiz-card" data-ans="wrong">
           <div class="quiz-key">C</div>
-          <div class="quiz-text">Ekdum 6 foot ki silent genius ladki</div>
+          <div class="quiz-text">Secret FBI agent jo dosti verify karne aaya hai 🕵️</div>
         </div>
       </div>
       <p id="quiz1Feedback" style="font-size:12.5px; color:var(--accent-yellow); font-weight:700; min-height:18px;"></p>
     </section>
 
-    <!-- ================= SCENE 2: THE RUNAWAY BUTTON IN HINGLISH ================= -->
+    <!-- ================= SCENE 2: THE RUNAWAY BUTTON ================= -->
     <section class="scene" id="sceneRunaway" hidden>
-      <span class="badge-tag">Security Check 02 • Height Check</span>
-      <h2 class="title-lg">Sach Sach Batao! 😏</h2>
-      <p class="desc-text">Neeche wale button ko click karke prove karo ki <strong>tum mujhse bhi lambi ho 😏:</strong></p>
+      <span class="badge-tag">Verification 02 • Reflex Test</span>
+      <h2 class="title-lg">Speed Test For Dumbo! 🏃‍♂️💨</h2>
+      <p class="desc-text">Neeche wale button ko click karke prove karo ki tum slow nahi ho:</p>
 
       <div class="teleport-arena" id="arena">
-        <button class="sneaky-btn" id="runawayBtn">HAAN MAI LAMBI HU! </button>
+        <button class="sneaky-btn" id="runawayBtn">MAI SPEED HERO HU! ⚡</button>
       </div>
 
       <p class="desc-text" id="runawayTaunt" style="font-size:12.5px; color:var(--primary); font-weight:700; min-height:20px;">
-        Pakad ke dikhao agar haath pohonch raha hai toh! 🤏
+        Pakad ke dikhao agar reflexes zinda hain toh! 🤏
       </p>
 
       <div class="btn-group" id="admitHeightGroup" style="opacity:0; transition:opacity 0.4s; pointer-events:none;">
         <button class="btn-secondary" id="btnAdmitShort">
-          Achha theek hai yaar, Chhota Recharge hu 😒 Aage jane do...
+          Achha theek hai yaar, slow hu mai 😒 Aage jane do...
         </button>
       </div>
     </section>
 
-    <!-- ================= SCENE 3: THE FRIENDSHIP CAPTCHA IN HINGLISH ================= -->
+    <!-- ================= SCENE 3: FRIENDSHIP CAPTCHA ================= -->
     <section class="scene" id="sceneCaptcha" hidden>
-      <span class="badge-tag">Security Check 03 • CAPTCHA</span>
-      <h2 class="title-lg">Dosti Ka Asli Test</h2>
-      <p class="desc-text">Prove karo ki tum sach me meri friend ho (aur koi jasoos nahi):</p>
+      <span class="badge-tag">Verification 03 • CAPTCHA</span>
+      <h2 class="title-lg">Dosti Compatibility Scan</h2>
+      <p class="desc-text">Select all genuine reasons hume dost kyu hona chahiye:</p>
 
       <div class="captcha-box">
         <div class="captcha-header">
-          Select all the reasons hum dost kyu hain:
+          Select all matching conditions:
         </div>
         <div class="captcha-grid" id="captchaGrid">
           <div class="captcha-tile" data-valid="true">
             <span class="tile-icon">🍿</span>
-            <span>Muft Ka Gossip Aur Daily Drama</span>
+            <span>Muft Ka Daily Entertainment & Banter</span>
           </div>
           <div class="captcha-tile" data-valid="true">
             <span class="tile-icon">🎯</span>
-            <span>Kyuki Mai Tumhare Bakwaas Jokes Jhelta Hu</span>
+            <span>Kyuki Tumhare Bina Roast Kispe Karunga?</span>
           </div>
           <div class="captcha-tile" data-valid="true">
             <span class="tile-icon">🤝</span>
-            <span>Agar Dosti Todi Toh tum Meri pitti kardogi</span>
+            <span>Acche Dost Market Me Bohot Rare Hote Hain</span>
           </div>
           <div class="captcha-tile" data-valid="true">
             <span class="tile-icon">✨</span>
-            <span>Kyuki Tum Genuinely Bohot Mast Dost Ho</span>
+            <span>Kyuki Tum Genuinely Bohot Mast Insaan Ho</span>
           </div>
         </div>
       </div>
 
       <div class="btn-group">
         <button class="btn-primary" id="btnSubmitCaptcha">
-          Verify Karo Humari Dosti 😠
+          Verify Our Potential Dosti 😠
         </button>
       </div>
     </section>
 
-    <!-- ================= SCENE 4: THE FAKE GRAND PRIZE VAULT ================= -->
+    <!-- ================= SCENE 4: DECRYPTING THE FAKE VAULT ================= -->
     <section class="scene" id="sceneVault" hidden>
       <span class="badge-tag">Stage 04 • High Security Vault</span>
-      <h2 class="title-lg">Barsa Ka VIP Gift Decrypt Ho Raha Hai</h2>
-      <p class="desc-text">Thoda sa sabar rakhiye... Duniya ka sabse costly gift box khulne wala hai 🙄</p>
+      <h2 class="title-lg">Dumbo Ka VIP Welcome Gift</h2>
+      <p class="desc-text">Thoda sa sabar rakhiye... Classified vault unlock ho raha hai 🙄</p>
 
       <div class="vault-visual">
         <svg class="vault-safe" id="vaultSvg" viewBox="0 0 160 160">
-          <rect x="15" y="15" width="130" height="130" rx="20" fill="#2c1a3b" stroke="#ffd000" stroke-width="5"/>
-          <circle cx="80" cy="80" r="38" fill="#170c22" stroke="#00f0ff" stroke-width="4"/>
+          <rect x="15" y="15" width="130" height="130" rx="20" fill="#241434" stroke="#ffd000" stroke-width="5"/>
+          <circle cx="80" cy="80" r="38" fill="#13091e" stroke="#00f0ff" stroke-width="4"/>
           <!-- Vault Wheel Spokes -->
           <line x1="80" y1="46" x2="80" y2="114" stroke="#ffd000" stroke-width="4"/>
           <line x1="46" y1="80" x2="114" y2="80" stroke="#ffd000" stroke-width="4"/>
-          <circle cx="80" cy="80" r="14" fill="#ff3377" stroke="#fff" stroke-width="3"/>
+          <circle cx="80" cy="80" r="14" fill="#ff5722" stroke="#fff" stroke-width="3"/>
           <circle cx="120" cy="35" r="4" fill="#00ffaa"/>
         </svg>
       </div>
 
       <div class="btn-group">
         <button class="btn-primary" id="btnUnlockSafe">
-           Kholo Apna Grand Gift!
+          🎁 Kholo Apna Grand Gift!
         </button>
       </div>
     </section>
 
-    <!-- ================= SCENE 5: THE TROLL REVEAL IN HINGLISH ================= -->
+    <!-- ================= SCENE 5: THE TROLL REVEAL ================= -->
     <section class="scene" id="sceneTrollPrize" hidden>
-      <span class="badge-tag">Congrats bauni ladki 🫠</span>
+      <span class="badge-tag">Grand Prize Unlocked 🫠</span>
       <h2 class="title-lg">Toh Ye Raha Tumhara Gift!</h2>
 
       <div class="fake-prize-card">
         <div class="fake-prize-tag">Price: ₹0.00</div>
-        <span class="trophy-icon">🏆</span>
-        <h3 style="font-size:1.15rem; color:#ffd000; margin-bottom:4px;">Golden Katori of Virtual Maggi 😏</h3>
+        <span class="trophy-icon">☕</span>
+        <h3 style="font-size:1.18rem; color:#ffd000; margin-bottom:4px;">1 Cup Virtual Tapri Chai & Samosa 😏</h3>
         <p style="font-size:0.9rem; color:#eee; line-height:1.4;">
-          + 1 Free Voucher: Ek baar mujhe bina kisi reason ke daantne ka (Terms & conditions: mujhe maloom nahi).
+          + Lifetime Free Subscription: Mere lame jokes aur random bakwaas sunne ka (No refund policy).
         </p>
       </div>
 
-      <p class="desc-text" style="color:#ff70a6; font-weight:700;">
-        Kaisa laga surprise beta ? Bohot khush ho na? 🙄
+      <p class="desc-text" style="color:#ff8a65; font-weight:700;">
+        Kaisa laga surprise Dumbo ji? Ekdum speech-less ho na? 🤣
       </p>
 
       <div class="btn-group">
         <button class="btn-primary" id="btnRageReaction">
-          Chalo chalo age aao
+          Chalo ab gussa chhodo, aage aao...
         </button>
       </div>
     </section>
 
-    <!-- ================= SCENE 6: SURRENDER & THE REAL WHOLESOME LETTER IN HINGLISH ================= -->
+    <!-- ================= SCENE 6: THE WHOLESOME FRIENDSHIP PROPOSAL ================= -->
     <section class="scene" id="sceneRealLetter" hidden>
       <span class="badge-tag" style="background:rgba(0,255,170,0.15); color:#00ffaa; border-color:#00ffaa;">
-        🏳️ CEASEFIRE • SHANTI SHANTI
+        🏳️ OFFICIAL CEASEFIRE • TRUCE
       </span>
-      <h2 class="title-lg">Hathoda Mat Chalana! 🙏</h2>
+      <h2 class="title-lg">Gussa Mat Hona! 🙏</h2>
       <p class="desc-text" style="margin-bottom:12px;">
-        Isse pehle ki tum sach me mera murder plan bana lo... Ye raha tumhara asli surprise. Ekdum sach wala, no mazak.
+        Thoda bohot tang toh kar liya... par ab sach me dil se baat bolte hain.
       </p>
 
       <div class="letter-envelope">
         <div class="parchment">
-          <h3 class="letter-salutation">Dear nobita/shizuka (aka Hamari Drama Queen) ✨</h3>
+          <h3 class="letter-salutation">Dear Dumbo ✨</h3>
           <div class="letter-body">
             <p>
-              Mujhe pata hai tumhe thoda thoda toh gussa aya hoga na jhoot mat bolna tum abhi 0.2 seconds away thi mujhe screen ke paar se peetne ke liye par sacchi yr tumne dosti ka extreme patience test pass kar liya hai.
+              Mujhe pata hai tum abhi mujhe screen ke paar se daantne ka plan bana rahe the 😆 par sach bolu toh maine ye sab bas tumhare chehre par ek pyari si smile laane ke liye banaya tha.
             </p>
             <p>
-              Maine ye sab aise hi banaya tha kyuki main bore ho raha tha toh socha tumko tang karlu thoda sa 🫠 agar tumko bura laga toh solly boss/madam ji 🫡
+              Actually, achhe aur genuine log aaj kal bohot mushkil se milte hain. Tumse jab bhi baat hoti hai ya interaction hota hai, ek alag hi fun and relatable vibe aati hai. No fake attitude, no drama — just pure, chill energy.
             </p>
             <p>
-              But han ek cheez toh hai batane ke liye tumko wese pata hi hoga ki mere sath kabhi kabhi coaching se ghar ek ladki ati hai toh main bhi usse kabhi kabhi baat kar leta hun but wo itni majedaar ni hai like wo bahut mature hai and baki sab hi aise hain toh akeli tum hi ho jo ki itni funny hai 🫠 or danger toh tum ho hi pitti kar deti ho but han maja ata hai isiliye kyuki tum baccho ki tereh baat karti ho tabhi toh shizuka bolta hun 🫠😆
+              Toh mazak aur roasts ko ek taraf rakh kar... kya hum officially acche dost ban sakte hain? (I promise ab kam tang karunga... thoda bohot toh banta hai waise 😉).
             </p>
-            
           </div>
           <div class="letter-sign">
-            — Tumhara Annoying Friend 😼✌️
+            — Tumhara Future Best Friend 🐶✌️
           </div>
-          <div class="letter-stamp">CERTIFIED BESTIE</div>
+          <div class="letter-stamp">FRIENDSHIP REQUEST</div>
         </div>
       </div>
 
       <div class="btn-group" style="margin-top:16px;">
-        <button class="btn-primary" id="btnDownloadCert">
-          📜 Download Friendship Certificate
+        <button class="btn-primary" id="btnAcceptFriendship">
+          🤝 Haan Re Dumbo, Dosti Manzoor Hai!
         </button>
-        <button class="btn-secondary" id="btnFistbump">
-          😼 Billi Ko Fistbump Do (Truce)
+        <button class="btn-secondary" id="btnDownloadCert">
+          📜 Download Official Dosti Certificate
         </button>
       </div>
     </section>
@@ -674,7 +652,7 @@
 
 <script>
 (function() {
-  /* ---------- Web Audio Synthesizer (No external broken files!) ---------- */
+  /* ---------- Web Audio Synthesizer (Zero External Dependencies) ---------- */
   var audioCtx = null;
   var soundEnabled = true;
 
@@ -700,7 +678,7 @@
   }
 
   var SFX = {
-    click: function() { playTone(600, 'triangle', 0.08); },
+    click: function() { playTone(620, 'triangle', 0.08); },
     boing: function() {
       if (!soundEnabled) return;
       initAudio();
@@ -709,7 +687,7 @@
         var gain = audioCtx.createGain();
         osc.type = 'sawtooth';
         osc.frequency.setValueAtTime(220, audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.25);
+        osc.frequency.exponentialRampToValueAtTime(820, audioCtx.currentTime + 0.25);
         gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
         gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.25);
         osc.connect(gain); gain.connect(audioCtx.destination);
@@ -721,25 +699,24 @@
       playTone(110, 'sawtooth', 0.25, 0.1);
     },
     success: function() {
-      playTone(523.25, 'triangle', 0.15, 0);     // C5
-      playTone(659.25, 'triangle', 0.15, 0.12);  // E5
-      playTone(783.99, 'triangle', 0.25, 0.24);  // G5
-      playTone(1046.50, 'triangle', 0.4, 0.38);  // C6
+      playTone(523.25, 'triangle', 0.14, 0);     // C5
+      playTone(659.25, 'triangle', 0.14, 0.11);  // E5
+      playTone(783.99, 'triangle', 0.22, 0.22);  // G5
+      playTone(1046.50, 'triangle', 0.4, 0.35);  // C6
     },
     trollFanfare: function() {
-      playTone(400, 'square', 0.12, 0);
-      playTone(380, 'square', 0.12, 0.12);
-      playTone(350, 'square', 0.12, 0.24);
-      playTone(300, 'square', 0.45, 0.36);
+      playTone(390, 'square', 0.12, 0);
+      playTone(360, 'square', 0.12, 0.12);
+      playTone(330, 'square', 0.12, 0.24);
+      playTone(290, 'square', 0.45, 0.36);
     },
-    purr: function() {
-      playTone(320, 'sine', 0.1, 0);
-      playTone(380, 'sine', 0.15, 0.08);
-      playTone(450, 'sine', 0.2, 0.16);
+    bark: function() {
+      playTone(340, 'triangle', 0.09, 0);
+      playTone(480, 'triangle', 0.14, 0.06);
     }
   };
 
-  /* Sound toggle button */
+  /* Sound toggle */
   var soundToggleBtn = document.getElementById('soundToggle');
   soundToggleBtn.addEventListener('click', function() {
     initAudio();
@@ -750,76 +727,84 @@
 
   /* ---------- Ambient Floating Emojis ---------- */
   var floatingContainer = document.getElementById('floatingEmojis');
-  var emojis = ['🐱', '🌸', '☕', '✨', '⚡', '👀', '💅', '🍿', '🔥', '🍜'];
+  var emojis = ['🐶', '🐾', '✨', '⚡', '☕', '👀', '🍕', '🍿', '🔥', '🎉'];
   for (var i = 0; i < 16; i++) {
     var span = document.createElement('span');
     span.className = 'floating-emoji';
     span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
     span.style.left = (Math.random() * 95) + '%';
-    span.style.animationDuration = (10 + Math.random() * 14) + 's';
+    span.style.animationDuration = (11 + Math.random() * 13) + 's';
     span.style.animationDelay = (-Math.random() * 16) + 's';
     span.style.fontSize = (16 + Math.random() * 18) + 'px';
     floatingContainer.appendChild(span);
   }
 
-  /* ---------- Cat State & Mood Controller ---------- */
-  var catSvg = document.getElementById('catSvg');
-  var catBubble = document.getElementById('catBubble');
-  var catEyesNormal = document.getElementById('catEyesNormal');
-  var catShades = document.getElementById('catShades');
-  var catFlag = document.getElementById('catFlag');
-  var catMouth = document.getElementById('catMouth');
+  /* ---------- Dog Mascot Controller ---------- */
+  var dogSvg = document.getElementById('dogSvg');
+  var dogBubble = document.getElementById('dogBubble');
+  var dogEyesNormal = document.getElementById('dogEyesNormal');
+  var dogShades = document.getElementById('dogShades');
+  var dogFlag = document.getElementById('dogFlag');
+  var dogMouth = document.getElementById('dogMouth');
+  var dogTongue = document.getElementById('dogTongue');
   var pupilL = document.getElementById('pupilL');
   var pupilR = document.getElementById('pupilR');
+  var dogEarL = document.getElementById('dogEarL');
+  var dogEarR = document.getElementById('dogEarR');
 
-  function setCatMood(mood, text) {
-    if (text) catBubble.textContent = text;
-    catShades.style.display = 'none';
-    catFlag.style.display = 'none';
-    catEyesNormal.style.display = 'block';
+  function setDogMood(mood, text) {
+    if (text) dogBubble.textContent = text;
+    dogShades.style.display = 'none';
+    dogFlag.style.display = 'none';
+    dogTongue.style.display = 'none';
+    dogEyesNormal.style.display = 'block';
+    dogEarL.style.transform = 'none';
+    dogEarR.style.transform = 'none';
 
     if (mood === 'smug') {
-      catMouth.setAttribute('d', 'M88,118 Q94,127 100,118 Q106,127 112,118');
-      catSvg.style.transform = 'rotate(-4deg)';
+      dogMouth.setAttribute('d', 'M92,118 Q100,126 108,118');
+      dogSvg.style.transform = 'rotate(-4deg)';
     } else if (mood === 'cool') {
-      catShades.style.display = 'block';
-      catEyesNormal.style.display = 'none';
-      catMouth.setAttribute('d', 'M88,118 Q100,130 114,118');
-      catSvg.style.transform = 'scale(1.05)';
+      dogShades.style.display = 'block';
+      dogEyesNormal.style.display = 'none';
+      dogMouth.setAttribute('d', 'M90,118 Q100,128 112,118');
+      dogSvg.style.transform = 'scale(1.05)';
+      dogTongue.style.display = 'block';
     } else if (mood === 'scared') {
-      catMouth.setAttribute('d', 'M92,118 Q100,136 108,118 Z');
-      catMouth.setAttribute('fill', '#ff2255');
-      catSvg.style.transform = 'translateY(-6px) scale(0.95)';
+      dogMouth.setAttribute('d', 'M94,118 Q100,132 106,118 Z');
+      dogSvg.style.transform = 'translateY(-6px) scale(0.96)';
+      dogEarL.style.transform = 'rotate(-10deg)';
+      dogEarR.style.transform = 'rotate(10deg)';
     } else if (mood === 'surrender') {
-      catFlag.style.display = 'block';
-      catMouth.setAttribute('d', 'M90,122 Q100,115 110,122');
-      catMouth.setAttribute('fill', 'none');
-      catSvg.style.transform = 'rotate(3deg)';
+      dogFlag.style.display = 'block';
+      dogMouth.setAttribute('d', 'M92,122 Q100,116 108,122');
+      dogSvg.style.transform = 'rotate(3deg)';
     } else if (mood === 'happy') {
-      catMouth.setAttribute('d', 'M88,118 Q100,132 112,118');
-      catSvg.style.transform = 'scale(1.03)';
+      dogMouth.setAttribute('d', 'M90,116 Q100,130 110,116');
+      dogTongue.style.display = 'block';
+      dogSvg.style.transform = 'scale(1.04)';
     }
   }
 
-  /* Cat eyes follow pointer */
+  /* Eyes follow cursor pointer */
   document.addEventListener('pointermove', function(e) {
-    if (catEyesNormal.style.display === 'none') return;
-    var rect = catSvg.getBoundingClientRect();
+    if (dogEyesNormal.style.display === 'none') return;
+    var rect = dogSvg.getBoundingClientRect();
     var cx = rect.left + rect.width / 2;
     var cy = rect.top + rect.height * 0.45;
     var dx = e.clientX - cx;
     var dy = e.clientY - cy;
     var angle = Math.atan2(dy, dx);
-    var dist = Math.min(Math.hypot(dx, dy) / 40, 3.5);
+    var dist = Math.min(Math.hypot(dx, dy) / 38, 3.5);
     var px = Math.cos(angle) * dist;
     var py = Math.sin(angle) * dist;
     pupilL.setAttribute('cx', 74 + px);
-    pupilL.setAttribute('cy', 92 + py);
+    pupilL.setAttribute('cy', 88 + py);
     pupilR.setAttribute('cx', 126 + px);
-    pupilR.setAttribute('cy', 92 + py);
+    pupilR.setAttribute('cy', 88 + py);
   });
 
-  /* ---------- Confetti Engine ---------- */
+  /* ---------- Confetti Particle Engine ---------- */
   var confettiCanvas = document.getElementById('confettiCanvas');
   var cctx = confettiCanvas.getContext('2d');
   var confettiParts = [];
@@ -840,7 +825,7 @@
         vx: (Math.random() - 0.5) * 14,
         vy: -Math.random() * 12 - 4,
         size: Math.random() * 8 + 5,
-        color: ['#ff3377', '#ffd000', '#00f0ff', '#9d4edd', '#00ffaa'][Math.floor(Math.random() * 5)],
+        color: ['#ff5722', '#ffd000', '#00f0ff', '#9d4edd', '#00ffaa'][Math.floor(Math.random() * 5)],
         rot: Math.random() * 360,
         vrot: (Math.random() - 0.5) * 10,
         life: 1
@@ -897,7 +882,7 @@
   /* ========== SCENE 0: INTRO ========== */
   document.getElementById('btnStart').addEventListener('click', function() {
     SFX.click();
-    setCatMood('smug', 'Dekhte hain...');
+    setDogMood('smug', 'Mana kiya tha na?');
     switchScene('quiz1');
   });
 
@@ -911,17 +896,17 @@
       if (ans === 'correct') {
         SFX.success();
         card.classList.add('roast-shake');
-        quiz1Feedback.textContent = "✅ Sahi pakde hain! 100% certified Barsa energy match ho gayi.";
-        setCatMood('cool', 'Ekdum Sahi!');
+        quiz1Feedback.textContent = "✅ Wah! Self-awareness 100/100 hai tumhari!";
+        setDogMood('cool', 'Ekdum Sahi!');
         setTimeout(function() {
           switchScene('runaway');
           initRunawayButton();
-        }, 1200);
+        }, 1100);
       } else {
         SFX.buzzer();
         card.classList.add('roast-shake');
-        quiz1Feedback.textContent = "❌ Jhooth bolne ki bhi limit hoti hai Barsa! Sach sach choose karo!";
-        setCatMood('smug', 'Jhooth mat bolo!');
+        quiz1Feedback.textContent = "❌ Itna jhooth paap lagwayega Dumbo! Sach choose karo!";
+        setDogMood('smug', 'Jhooth mat bolo!');
         setTimeout(function() { card.classList.remove('roast-shake'); }, 500);
       }
     });
@@ -935,11 +920,11 @@
   var dodges = 0;
 
   var taunts = [
-    "Arey haath nahi pohonch raha kya? 🤏",
-    "Ghar se stool laana bhool gayi kya? 🪜",
-    "Thoda aur jump karo Barsa! 💨",
-    "Pakad ke dikhao! (Spoiler: Nahi pakad paogi) 🤣",
-    "Gussa aa raha hai na? Hehe! 😈"
+    "Arey pakad nahi paa rahe kya Dumbo? 🏃‍♂️",
+    "Thoda aur tej daudo! 💨",
+    "Reflexes so rahe hain kya? 🤣",
+    "Bas itna hi speed tha? Hehe! 😈",
+    "Button ne surrender nahi kiya abhi tak! 🤏"
   ];
 
   function moveButton() {
@@ -985,11 +970,11 @@
 
   document.getElementById('btnAdmitShort').addEventListener('click', function() {
     SFX.click();
-    setCatMood('smug', 'Sacchi baat bol di!');
+    setDogMood('smug', 'Acceptance is key!');
     switchScene('captcha');
   });
 
-  /* ========== SCENE 3: FRIENDSHIP CAPTCHA ========== */
+  /* ========== SCENE 3: CAPTCHA ========== */
   var captchaTiles = document.querySelectorAll('.captcha-tile');
   captchaTiles.forEach(function(tile) {
     tile.addEventListener('click', function() {
@@ -1002,12 +987,12 @@
     var selected = document.querySelectorAll('.captcha-tile.selected').length;
     if (selected === 0) {
       SFX.buzzer();
-      alert("Arey Barsa, kam se kam ek honest reason toh choose karo!");
+      alert("Arey Dumbo, kam se kam ek genuine reason toh select karo!");
       return;
     }
     SFX.success();
-    triggerConfetti(30);
-    setCatMood('cool', 'Dosti Verified! 🛡️');
+    triggerConfetti(35);
+    setDogMood('cool', 'Compatibility: 100% ✨');
     switchScene('vault');
   });
 
@@ -1017,37 +1002,39 @@
 
   btnUnlockSafe.addEventListener('click', function() {
     btnUnlockSafe.disabled = true;
-    btnUnlockSafe.textContent = "VIP GIFT DECRYPT HO RAHA HAI... ⏳";
+    btnUnlockSafe.textContent = "VIP SURPRISE DECRYPT HO RAHA HAI... ⏳";
     vaultSvg.classList.add('shake-safe');
     SFX.boing();
-    setCatMood('scared', 'Kursi ki peti baandh lo!');
+    setDogMood('scared', 'Box phatne wala hai!');
 
     setTimeout(function() {
       vaultSvg.classList.remove('shake-safe');
       SFX.trollFanfare();
-      triggerConfetti(60);
+      triggerConfetti(65);
       switchScene('trollPrize');
-      setCatMood('smug', 'Surpriseee! 😂');
+      setDogMood('smug', 'Tadaaa! 😂');
     }, 2200);
   });
 
-  /* ========== SCENE 5: TROLL REVEAL -> CEASEFIRE ========== */
+  /* ========== SCENE 5: TROLL REVEAL -> PEACE OFFERING ========== */
   document.getElementById('btnRageReaction').addEventListener('click', function() {
     SFX.buzzer();
-    setCatMood('surrender', 'MUJHE MAT MAARO! 🏳️');
+    setDogMood('surrender', 'PEACE! NO HATHODA! 🏳️');
     switchScene('realLetter');
-    triggerConfetti(90);
+    triggerConfetti(85);
   });
 
-  /* ========== SCENE 6: REAL LETTER ACTIONS ========== */
-  document.getElementById('btnFistbump').addEventListener('click', function() {
-    SFX.purr();
-    setCatMood('happy', 'Besties Forever! 🐾');
-    triggerConfetti(40);
-    alert("Billi bol rahi hai: Barsa is the best! Ab no gussa! 🐱❤️");
+  /* ========== SCENE 6: FRIENDSHIP PROPOSAL ACTIONS ========== */
+  document.getElementById('btnAcceptFriendship').addEventListener('click', function() {
+    SFX.bark();
+    setDogMood('happy', 'Officially Friends! 🐾❤️');
+    triggerConfetti(120);
+    this.disabled = true;
+    this.innerHTML = "🎉 Congratulations! Dosti Deal Signed! 🤝";
+    alert("Doggie says: Woohoo! Dumbo has officially accepted the friendship! No takebacks allowed! 🐶✨");
   });
 
-  /* Download Keepsake Certificate using Canvas */
+  /* Download Keepsake Certificate */
   document.getElementById('btnDownloadCert').addEventListener('click', function() {
     SFX.success();
     var canvas = document.getElementById('certCanvas');
@@ -1055,7 +1042,7 @@
 
     // Background Gradient
     var grad = ctx.createLinearGradient(0, 0, 800, 600);
-    grad.addColorStop(0, '#1a0b2e');
+    grad.addColorStop(0, '#1a0d2e');
     grad.addColorStop(0.5, '#2e124d');
     grad.addColorStop(1, '#0c0714');
     ctx.fillStyle = grad;
@@ -1066,39 +1053,39 @@
     ctx.lineWidth = 8;
     ctx.strokeRect(25, 25, 750, 550);
 
-    ctx.strokeStyle = '#ff3377';
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#ff5722';
+    ctx.lineWidth = 2.5;
     ctx.strokeRect(38, 38, 724, 524);
 
     // Title Header
-    ctx.fillStyle = '#ff70a6';
+    ctx.fillStyle = '#ff8a65';
     ctx.font = 'bold 20px sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('★ OFFICIAL FRIENDSHIP HONORS ★', 400, 95);
+    ctx.fillText('★ OFFICIAL FRIENDSHIP TREATY ★', 400, 95);
 
     ctx.fillStyle = '#ffffff';
     ctx.font = '900 36px sans-serif';
-    ctx.fillText('CERTIFICATE OF SURVIVING ROASTS', 400, 150);
+    ctx.fillText('CERTIFICATE OF BESTIE POTENTIAL', 400, 150);
 
     ctx.fillStyle = '#ffd000';
     ctx.font = '600 20px sans-serif';
-    ctx.fillText('Ye pramaan patra officially award kiya jaata hai:', 400, 205);
+    ctx.fillText('This honor is proudly awarded to:', 400, 205);
 
     // Friend Name
     ctx.fillStyle = '#00f0ff';
-    ctx.font = '900 48px sans-serif';
-    ctx.fillText('BARSA', 400, 275);
+    ctx.font = '900 50px sans-serif';
+    ctx.fillText('DUMBO', 400, 275);
 
-    // Fun Subtext
+    // Subtext
     ctx.fillStyle = '#e2d9f3';
     ctx.font = '20px sans-serif';
-    ctx.fillText('Bina phone tode aur bina murder kiye roasts ko jhelne ke liye.', 400, 335);
-    ctx.fillText('Officially crowned as the Most Chaotic & Irreplaceable Bestie.', 400, 370);
+    ctx.fillText('For successfully surviving multiple verification roasts,', 400, 335);
+    ctx.fillText('and officially joining the elite tier of Great Friends.', 400, 370);
 
     // Badges / Tags
-    ctx.fillStyle = '#ff3377';
+    ctx.fillStyle = '#ff5722';
     ctx.font = 'bold 16px sans-serif';
-    ctx.fillText('[ 100% DRAMA QUEEN ]  •  [ 0% PATIENCE ]  •  [ 100% ASLI DOST ]', 400, 430);
+    ctx.fillText('[ 100% CERTIFIED DUMBO ]  •  [ 0% ANGER ]  •  [ 100% BEST FRIEND MATERIAL ]', 400, 430);
 
     // Signatures
     ctx.strokeStyle = '#ffffff';
@@ -1110,12 +1097,12 @@
 
     ctx.fillStyle = '#aba3bd';
     ctx.font = '14px sans-serif';
-    ctx.fillText('Tumhara Annoying Best Friend 😼', 220, 525);
-    ctx.fillText('Cat Quality Inspector 🐾', 580, 525);
+    ctx.fillText('Authorized Friend ✌️', 220, 525);
+    ctx.fillText('Chief Puppy Officer 🐾', 580, 525);
 
     // Generate Download
     var link = document.createElement('a');
-    link.download = 'Barsa_Certified_Bestie_Certificate.png';
+    link.download = 'Dumbo_Official_Friendship_Certificate.png';
     link.href = canvas.toDataURL('image/png');
     link.click();
   });
