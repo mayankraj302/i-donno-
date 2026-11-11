@@ -51,7 +51,7 @@
     background-size: 100% 100%, 100% 100%, 100% 100%, 36px 36px, 36px 36px;
   }
 
-  /* Floating Paw & Sparkle Emojis */
+  /* Floating Paw Emojis */
   .floating-emojis {
     position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden;
   }
@@ -66,26 +66,12 @@
     100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
   }
 
-  /* Clean Sound Button at Top Right */
-  .sound-btn {
-    position: fixed; top: 18px; right: 20px; z-index: 50;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    color: var(--text-main);
-    width: 42px; height: 42px; border-radius: 50%;
-    display: grid; place-items: center; cursor: pointer;
-    font-size: 18px; backdrop-filter: blur(12px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: all 0.25s cubic-bezier(0.2, 1, 0.3, 1);
-  }
-  .sound-btn:hover { background: rgba(255, 255, 255, 0.2); transform: scale(1.1); }
-
   /* Main Wrapper */
   .main-app {
     position: relative; z-index: 10;
     min-height: 100vh;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 60px 16px 30px;
+    padding: 35px 16px 30px;
   }
 
   .stage-box {
@@ -223,7 +209,7 @@
   }
   .quiz-text { font-weight: 600; font-size: 0.92rem; color: #eee; flex: 1; }
 
-  /* The Runaway Button Arena */
+  /* Runaway Arenas */
   .teleport-arena {
     position: relative; width: 100%; min-height: 125px;
     border: 1.5px dashed rgba(255, 255, 255, 0.16);
@@ -241,7 +227,39 @@
     white-space: nowrap; z-index: 5;
   }
 
-  /* Friendship CAPTCHA Grid */
+  /* Specialized Proposal Duel Arena (Are we friends?) */
+  .proposal-arena {
+    position: relative; width: 100%; min-height: 155px;
+    border: 1.5px dashed rgba(255, 87, 34, 0.35);
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 20px; margin: 12px 0 16px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .proposal-yes-btn {
+    background: linear-gradient(135deg, #00ffaa, #00b894);
+    color: #0b2219; border: 2px solid #000; box-shadow: 0 6px 0 #000;
+    padding: 14px 28px; border-radius: 99px;
+    font-weight: 900; font-size: 1.05rem; cursor: pointer;
+    display: flex; align-items: center; gap: 8px;
+    transition: all 0.25s cubic-bezier(0.2, 1.4, 0.3, 1);
+    z-index: 10;
+  }
+  .proposal-yes-btn:hover {
+    transform: scale(1.08) translateY(-3px);
+    box-shadow: 0 9px 25px rgba(0, 255, 170, 0.5);
+  }
+  .proposal-no-btn {
+    position: absolute;
+    background: #ff3366; color: #fff;
+    border: 2px solid #000; box-shadow: 0 4px 0 #000;
+    padding: 10px 18px; border-radius: 99px;
+    font-weight: 800; font-size: 0.88rem; cursor: pointer;
+    transition: left 0.15s ease-out, top 0.15s ease-out, transform 0.15s ease-out;
+    white-space: nowrap; z-index: 15;
+  }
+
+  /* CAPTCHA Grid */
   .captcha-box {
     width: 100%; border: 1.5px solid rgba(255,255,255,0.12);
     border-radius: 18px; background: rgba(0,0,0,0.3);
@@ -294,7 +312,7 @@
     75% { transform: translate(-2px, -2px) scale(1.02); }
   }
 
-  /* Fake Troll Prize Card */
+  /* Troll Prize Card */
   .fake-prize-card {
     background: linear-gradient(135deg, rgba(255,208,0,0.16), rgba(255,87,34,0.18));
     border: 2px solid var(--accent-yellow);
@@ -368,7 +386,7 @@
     pointer-events: none; z-index: 100;
   }
 
-  /* Keepsake Card Canvas (Hidden for export) */
+  /* Keepsake Canvas (Hidden) */
   #certCanvas { display: none; }
 
   @media (max-width: 420px) {
@@ -385,9 +403,6 @@
 <canvas id="confettiCanvas"></canvas>
 <canvas id="certCanvas" width="800" height="600"></canvas>
 
-<!-- Clean Sound Toggle Button on Top Right (No annoying top popup) -->
-<button class="sound-btn" id="soundToggle" title="Audio Toggle">🔊</button>
-
 <main class="main-app">
   <div class="stage-box" id="mainBox">
 
@@ -395,7 +410,7 @@
     <div class="mascot-area">
       <span class="dog-bubble" id="dogBubble">Hehe 😏</span>
       <svg class="dog-svg" id="dogSvg" viewBox="0 0 200 185" role="img" aria-label="Puppy Mascot">
-        <!-- Floppy Ears (Dynamic Bounce) -->
+        <!-- Floppy Ears -->
         <g id="dogEarL">
           <ellipse cx="44" cy="75" rx="20" ry="42" fill="#8d5b4c" stroke="#221128" stroke-width="4" transform="rotate(-15 44 75)"/>
           <ellipse cx="44" cy="78" rx="12" ry="30" fill="#ffab91" transform="rotate(-15 44 78)"/>
@@ -409,21 +424,20 @@
         <ellipse cx="100" cy="156" rx="56" ry="30" fill="#d7a15c" stroke="#221128" stroke-width="4"/>
         <ellipse cx="68" cy="166" rx="16" ry="10" fill="#fffaf0" stroke="#221128" stroke-width="3"/>
         <ellipse cx="132" cy="166" rx="16" ry="10" fill="#fffaf0" stroke="#221128" stroke-width="3"/>
-        <!-- Paw pads -->
         <circle cx="68" cy="166" r="3" fill="#ff8a65"/>
         <circle cx="132" cy="166" r="3" fill="#ff8a65"/>
 
         <!-- Head -->
         <ellipse cx="100" cy="96" rx="64" ry="54" fill="#d7a15c" stroke="#221128" stroke-width="4"/>
         
-        <!-- White Fur Patch on Face -->
+        <!-- White Fur Patch -->
         <path d="M85,55 Q100,75 115,55 Q125,105 100,126 Q75,105 85,55 Z" fill="#fffaf0" opacity="0.95"/>
 
         <!-- Cute Blushes -->
         <ellipse cx="56" cy="112" rx="10" ry="6" fill="#ff7043" opacity="0.6"/>
         <ellipse cx="144" cy="112" rx="10" ry="6" fill="#ff7043" opacity="0.6"/>
 
-        <!-- Eyes Group (Normal / Following Cursor) -->
+        <!-- Eyes Group -->
         <g id="dogEyesNormal">
           <ellipse cx="74" cy="88" rx="12" ry="14" fill="#fff" stroke="#221128" stroke-width="3.5"/>
           <ellipse id="pupilL" cx="75" cy="89" rx="7" ry="8" fill="#221128"/>
@@ -434,7 +448,7 @@
           <circle cx="128" cy="85" r="3" fill="#fff"/>
         </g>
 
-        <!-- Cute Aviator Sunglasses for Cool Mode -->
+        <!-- Aviator Sunglasses -->
         <g id="dogShades" style="display:none;">
           <polygon points="48,76 96,76 90,104 54,102" fill="#111" stroke="#ffd000" stroke-width="3"/>
           <polygon points="104,76 152,76 146,102 110,104" fill="#111" stroke="#ffd000" stroke-width="3"/>
@@ -443,19 +457,18 @@
           <line x1="114" y1="81" x2="136" y2="98" stroke="#fff" stroke-width="2.5" opacity="0.75"/>
         </g>
 
-        <!-- Surrender White Flag Mode -->
+        <!-- White Flag -->
         <g id="dogFlag" style="display:none;" transform="translate(142, 38)">
           <line x1="0" y1="0" x2="0" y2="115" stroke="#888" stroke-width="4"/>
           <polygon points="0,6 52,24 0,42" fill="#ffffff" stroke="#221128" stroke-width="3"/>
           <text x="8" y="28" font-size="11" font-weight="900" fill="#ff3366">TRUCE!</text>
         </g>
 
-        <!-- Snout, Nose & Tongue -->
+        <!-- Snout & Nose -->
         <ellipse cx="100" cy="116" rx="24" ry="18" fill="#fffaf0" stroke="#221128" stroke-width="2.5"/>
-        <!-- Heart Shaped Nose -->
         <path d="M93,108 C93,103 98,103 100,107 C102,103 107,103 107,108 C107,114 100,118 100,118 C100,118 93,114 93,108 Z" fill="#221128"/>
         
-        <!-- Mouth & Derpy Tongue -->
+        <!-- Mouth & Tongue -->
         <path id="dogMouth" d="M92,118 Q100,126 108,118" fill="none" stroke="#221128" stroke-width="3.5" stroke-linecap="round"/>
         <path id="dogTongue" d="M96,122 Q100,135 104,122 Z" fill="#ff5252" stroke="#221128" stroke-width="2" style="display:none;"/>
       </svg>
@@ -566,7 +579,6 @@
         <svg class="vault-safe" id="vaultSvg" viewBox="0 0 160 160">
           <rect x="15" y="15" width="130" height="130" rx="20" fill="#241434" stroke="#ffd000" stroke-width="5"/>
           <circle cx="80" cy="80" r="38" fill="#13091e" stroke="#00f0ff" stroke-width="4"/>
-          <!-- Vault Wheel Spokes -->
           <line x1="80" y1="46" x2="80" y2="114" stroke="#ffd000" stroke-width="4"/>
           <line x1="46" y1="80" x2="114" y2="80" stroke="#ffd000" stroke-width="4"/>
           <circle cx="80" cy="80" r="14" fill="#ff5722" stroke="#fff" stroke-width="3"/>
@@ -600,20 +612,47 @@
       </p>
 
       <div class="btn-group">
-        <button class="btn-primary" id="btnRageReaction">
+        <button class="btn-primary" id="btnGoToProposal">
           Chalo ab gussa chhodo, aage aao...
         </button>
       </div>
     </section>
 
-    <!-- ================= SCENE 6: THE WHOLESOME FRIENDSHIP PROPOSAL ================= -->
+    <!-- ================= NEW SCENE 5.5: THE "ARE WE FRIENDS?" RUNAWAY DUEL ================= -->
+    <section class="scene" id="sceneProposal" hidden>
+      <span class="badge-tag" style="background:rgba(255,208,0,0.2); color:#ffd000; border-color:#ffd000;">
+        Final Question • No Cheating ⚖️
+      </span>
+      <h2 class="title-lg">Toh Dumbo... Are We Friends Now? 🥺</h2>
+      <p class="desc-text">
+        Sach sach batao, itne roasts jhelne ke baad dosti confirm hai na? Choose your answer:
+      </p>
+
+      <div class="proposal-arena" id="proposalArena">
+        <!-- The big, clickable YES button -->
+        <button class="proposal-yes-btn" id="btnFriendYes">
+          <span>HAANJI BILKUL! 🤝</span>
+        </button>
+
+        <!-- The impossible-to-catch NO button -->
+        <button class="proposal-no-btn" id="btnFriendNo">
+          NAHI KABHI NAHI 😤
+        </button>
+      </div>
+
+      <p class="desc-text" id="proposalTaunt" style="font-size:13px; color:var(--accent-yellow); font-weight:700; min-height:22px;">
+        Ek option bohot easy hai, dusra impossible hai 😏
+      </p>
+    </section>
+
+    <!-- ================= SCENE 6: THE WHOLESOME LETTER & CERTIFICATE ================= -->
     <section class="scene" id="sceneRealLetter" hidden>
       <span class="badge-tag" style="background:rgba(0,255,170,0.15); color:#00ffaa; border-color:#00ffaa;">
-        🏳️ OFFICIAL CEASEFIRE • TRUCE
+        🏳️ OFFICIAL CEASEFIRE • DOSTI LOCKED
       </span>
-      <h2 class="title-lg">Gussa Mat Hona! 🙏</h2>
+      <h2 class="title-lg">Haha Sahi Decision Liya! 🎉</h2>
       <p class="desc-text" style="margin-bottom:12px;">
-        Thoda bohot tang toh kar liya... par ab sach me dil se baat bolte hain.
+        Mujhe pata tha tum 'NO' click nahi kar paogi 🤣 Par ab dil se ek baat:
       </p>
 
       <div class="letter-envelope">
@@ -627,21 +666,18 @@
               Actually, achhe aur genuine log aaj kal bohot mushkil se milte hain. Tumse jab bhi baat hoti hai ya interaction hota hai, ek alag hi fun and relatable vibe aati hai. No fake attitude, no drama — just pure, chill energy.
             </p>
             <p>
-              Toh mazak aur roasts ko ek taraf rakh kar... kya hum officially acche dost ban sakte hain? (I promise ab kam tang karunga... thoda bohot toh banta hai waise 😉).
+              Toh ab jabki tum officially 'YES' click kar chuki ho... our friendship is now legally locked! (I promise ab kam tang karunga... thoda bohot toh banta hai waise 😉).
             </p>
           </div>
           <div class="letter-sign">
-            — Tumhara Future Best Friend 🐶✌️
+            — Tumhara Official Best Friend 🐶✌️
           </div>
-          <div class="letter-stamp">FRIENDSHIP REQUEST</div>
+          <div class="letter-stamp">FRIENDSHIP CONFIRMED</div>
         </div>
       </div>
 
       <div class="btn-group" style="margin-top:16px;">
-        <button class="btn-primary" id="btnAcceptFriendship">
-          🤝 Haan Re Dumbo, Dosti Manzoor Hai!
-        </button>
-        <button class="btn-secondary" id="btnDownloadCert">
+        <button class="btn-primary" id="btnDownloadCert">
           📜 Download Official Dosti Certificate
         </button>
       </div>
@@ -652,80 +688,7 @@
 
 <script>
 (function() {
-  /* ---------- Web Audio Synthesizer (Zero External Dependencies) ---------- */
-  var audioCtx = null;
-  var soundEnabled = true;
-
-  function initAudio() {
-    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    if (audioCtx.state === 'suspended') audioCtx.resume();
-  }
-
-  function playTone(freq, type, duration, delay) {
-    if (!soundEnabled) return;
-    try {
-      initAudio();
-      var osc = audioCtx.createOscillator();
-      var gain = audioCtx.createGain();
-      osc.type = type || 'sine';
-      osc.frequency.setValueAtTime(freq, audioCtx.currentTime + (delay || 0));
-      gain.gain.setValueAtTime(0.15, audioCtx.currentTime + (delay || 0));
-      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (delay || 0) + duration);
-      osc.connect(gain); gain.connect(audioCtx.destination);
-      osc.start(audioCtx.currentTime + (delay || 0));
-      osc.stop(audioCtx.currentTime + (delay || 0) + duration);
-    } catch(e) {}
-  }
-
-  var SFX = {
-    click: function() { playTone(620, 'triangle', 0.08); },
-    boing: function() {
-      if (!soundEnabled) return;
-      initAudio();
-      try {
-        var osc = audioCtx.createOscillator();
-        var gain = audioCtx.createGain();
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(220, audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(820, audioCtx.currentTime + 0.25);
-        gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.25);
-        osc.connect(gain); gain.connect(audioCtx.destination);
-        osc.start(); osc.stop(audioCtx.currentTime + 0.25);
-      } catch(e) {}
-    },
-    buzzer: function() {
-      playTone(130, 'sawtooth', 0.2);
-      playTone(110, 'sawtooth', 0.25, 0.1);
-    },
-    success: function() {
-      playTone(523.25, 'triangle', 0.14, 0);     // C5
-      playTone(659.25, 'triangle', 0.14, 0.11);  // E5
-      playTone(783.99, 'triangle', 0.22, 0.22);  // G5
-      playTone(1046.50, 'triangle', 0.4, 0.35);  // C6
-    },
-    trollFanfare: function() {
-      playTone(390, 'square', 0.12, 0);
-      playTone(360, 'square', 0.12, 0.12);
-      playTone(330, 'square', 0.12, 0.24);
-      playTone(290, 'square', 0.45, 0.36);
-    },
-    bark: function() {
-      playTone(340, 'triangle', 0.09, 0);
-      playTone(480, 'triangle', 0.14, 0.06);
-    }
-  };
-
-  /* Sound toggle */
-  var soundToggleBtn = document.getElementById('soundToggle');
-  soundToggleBtn.addEventListener('click', function() {
-    initAudio();
-    soundEnabled = !soundEnabled;
-    soundToggleBtn.textContent = soundEnabled ? '🔊' : '🔇';
-    if (soundEnabled) SFX.click();
-  });
-
-  /* ---------- Ambient Floating Emojis ---------- */
+  /* Ambient Floating Emojis */
   var floatingContainer = document.getElementById('floatingEmojis');
   var emojis = ['🐶', '🐾', '✨', '⚡', '☕', '👀', '🍕', '🍿', '🔥', '🎉'];
   for (var i = 0; i < 16; i++) {
@@ -739,7 +702,7 @@
     floatingContainer.appendChild(span);
   }
 
-  /* ---------- Dog Mascot Controller ---------- */
+  /* Dog Mascot Controller */
   var dogSvg = document.getElementById('dogSvg');
   var dogBubble = document.getElementById('dogBubble');
   var dogEyesNormal = document.getElementById('dogEyesNormal');
@@ -804,7 +767,7 @@
     pupilR.setAttribute('cy', 88 + py);
   });
 
-  /* ---------- Confetti Particle Engine ---------- */
+  /* Confetti Particle Engine */
   var confettiCanvas = document.getElementById('confettiCanvas');
   var cctx = confettiCanvas.getContext('2d');
   var confettiParts = [];
@@ -860,7 +823,7 @@
     }
   }
 
-  /* ---------- Navigation Flow Between Scenes ---------- */
+  /* Navigation Flow Between Scenes */
   var scenes = {
     intro: document.getElementById('sceneIntro'),
     quiz1: document.getElementById('sceneQuiz1'),
@@ -868,6 +831,7 @@
     captcha: document.getElementById('sceneCaptcha'),
     vault: document.getElementById('sceneVault'),
     trollPrize: document.getElementById('sceneTrollPrize'),
+    proposal: document.getElementById('sceneProposal'),
     realLetter: document.getElementById('sceneRealLetter')
   };
 
@@ -879,14 +843,13 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  /* ========== SCENE 0: INTRO ========== */
+  /* Scene 0: Intro */
   document.getElementById('btnStart').addEventListener('click', function() {
-    SFX.click();
     setDogMood('smug', 'Mana kiya tha na?');
     switchScene('quiz1');
   });
 
-  /* ========== SCENE 1: QUIZ 1 ========== */
+  /* Scene 1: Quiz 1 */
   var quiz1Cards = document.querySelectorAll('#sceneQuiz1 .quiz-card');
   var quiz1Feedback = document.getElementById('quiz1Feedback');
 
@@ -894,7 +857,6 @@
     card.addEventListener('click', function() {
       var ans = card.getAttribute('data-ans');
       if (ans === 'correct') {
-        SFX.success();
         card.classList.add('roast-shake');
         quiz1Feedback.textContent = "✅ Wah! Self-awareness 100/100 hai tumhari!";
         setDogMood('cool', 'Ekdum Sahi!');
@@ -903,7 +865,6 @@
           initRunawayButton();
         }, 1100);
       } else {
-        SFX.buzzer();
         card.classList.add('roast-shake');
         quiz1Feedback.textContent = "❌ Itna jhooth paap lagwayega Dumbo! Sach choose karo!";
         setDogMood('smug', 'Jhooth mat bolo!');
@@ -912,7 +873,7 @@
     });
   });
 
-  /* ========== SCENE 2: RUNAWAY BUTTON ========== */
+  /* Scene 2: Runaway Button */
   var runawayBtn = document.getElementById('runawayBtn');
   var arena = document.getElementById('arena');
   var runawayTaunt = document.getElementById('runawayTaunt');
@@ -929,7 +890,6 @@
 
   function moveButton() {
     dodges++;
-    SFX.boing();
     var arenaRect = arena.getBoundingClientRect();
     var btnWidth = runawayBtn.offsetWidth;
     var btnHeight = runawayBtn.offsetHeight;
@@ -969,16 +929,14 @@
   });
 
   document.getElementById('btnAdmitShort').addEventListener('click', function() {
-    SFX.click();
     setDogMood('smug', 'Acceptance is key!');
     switchScene('captcha');
   });
 
-  /* ========== SCENE 3: CAPTCHA ========== */
+  /* Scene 3: CAPTCHA */
   var captchaTiles = document.querySelectorAll('.captcha-tile');
   captchaTiles.forEach(function(tile) {
     tile.addEventListener('click', function() {
-      SFX.click();
       tile.classList.toggle('selected');
     });
   });
@@ -986,17 +944,15 @@
   document.getElementById('btnSubmitCaptcha').addEventListener('click', function() {
     var selected = document.querySelectorAll('.captcha-tile.selected').length;
     if (selected === 0) {
-      SFX.buzzer();
       alert("Arey Dumbo, kam se kam ek genuine reason toh select karo!");
       return;
     }
-    SFX.success();
     triggerConfetti(35);
     setDogMood('cool', 'Compatibility: 100% ✨');
     switchScene('vault');
   });
 
-  /* ========== SCENE 4: VAULT / HIGH SECURITY DECRYPT ========== */
+  /* Scene 4: Vault Decrypt */
   var btnUnlockSafe = document.getElementById('btnUnlockSafe');
   var vaultSvg = document.getElementById('vaultSvg');
 
@@ -1004,39 +960,94 @@
     btnUnlockSafe.disabled = true;
     btnUnlockSafe.textContent = "VIP SURPRISE DECRYPT HO RAHA HAI... ⏳";
     vaultSvg.classList.add('shake-safe');
-    SFX.boing();
     setDogMood('scared', 'Box phatne wala hai!');
 
     setTimeout(function() {
       vaultSvg.classList.remove('shake-safe');
-      SFX.trollFanfare();
       triggerConfetti(65);
       switchScene('trollPrize');
       setDogMood('smug', 'Tadaaa! 😂');
     }, 2200);
   });
 
-  /* ========== SCENE 5: TROLL REVEAL -> PEACE OFFERING ========== */
-  document.getElementById('btnRageReaction').addEventListener('click', function() {
-    SFX.buzzer();
-    setDogMood('surrender', 'PEACE! NO HATHODA! 🏳️');
-    switchScene('realLetter');
-    triggerConfetti(85);
+  /* Scene 5: Troll Reveal -> Transition to Proposal Duel */
+  document.getElementById('btnGoToProposal').addEventListener('click', function() {
+    setDogMood('smug', 'Ab aayega maza! 😏');
+    switchScene('proposal');
+    initProposalDuel();
   });
 
-  /* ========== SCENE 6: FRIENDSHIP PROPOSAL ACTIONS ========== */
-  document.getElementById('btnAcceptFriendship').addEventListener('click', function() {
-    SFX.bark();
-    setDogMood('happy', 'Officially Friends! 🐾❤️');
+  /* ========== SCENE 5.5: THE UNCLICKABLE "NO" FRIENDSHIP DUEL ========== */
+  var btnFriendYes = document.getElementById('btnFriendYes');
+  var btnFriendNo = document.getElementById('btnFriendNo');
+  var proposalArena = document.getElementById('proposalArena');
+  var proposalTaunt = document.getElementById('proposalTaunt');
+  var noDodges = 0;
+  var yesScale = 1.0;
+
+  var noTaunts = [
+    "Error 404: 'NO' option not found in this universe! 🤣",
+    "Arey re, button haath se nikal gaya Dumbo! 🏃‍♂️💨",
+    "Galti se bhi 'NO' dabane ka sapna mat dekho! 😈",
+    "Universe bol raha hai: Sirf YES chalega! ✨",
+    "Haath thak jayenge par NO click nahi hoga 😏",
+    "Ab toh YES hi dabana padega, surrender kardo! 🏳️"
+  ];
+
+  function moveNoButton() {
+    noDodges++;
+    var arenaRect = proposalArena.getBoundingClientRect();
+    var btnWidth = btnFriendNo.offsetWidth;
+    var btnHeight = btnFriendNo.offsetHeight;
+
+    // Constrain within the arena bounds
+    var maxX = Math.max(10, arenaRect.width - btnWidth - 14);
+    var maxY = Math.max(10, arenaRect.height - btnHeight - 14);
+
+    var randX = Math.floor(Math.random() * maxX);
+    var randY = Math.floor(Math.random() * maxY);
+
+    btnFriendNo.style.left = randX + 'px';
+    btnFriendNo.style.top = randY + 'px';
+
+    proposalTaunt.textContent = noTaunts[noDodges % noTaunts.length];
+
+    // Every time she tries, the YES button gently grows and becomes more attractive
+    if (yesScale < 1.35) {
+      yesScale += 0.05;
+      btnFriendYes.style.transform = 'scale(' + yesScale + ')';
+    }
+  }
+
+  function initProposalDuel() {
+    noDodges = 0;
+    yesScale = 1.0;
+    btnFriendYes.style.transform = 'scale(1)';
+    // Initial positioning of NO button on bottom-right of arena
+    btnFriendNo.style.left = '70%';
+    btnFriendNo.style.top = '65%';
+    proposalTaunt.textContent = "Ek option bohot easy hai, dusra impossible hai 😏";
+  }
+
+  btnFriendNo.addEventListener('mouseenter', moveNoButton);
+  btnFriendNo.addEventListener('pointerdown', function(e) {
+    e.preventDefault();
+    moveNoButton();
+  });
+  btnFriendNo.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+    moveNoButton();
+  });
+
+  /* Clicking YES unlocks the real letter */
+  btnFriendYes.addEventListener('click', function() {
+    setDogMood('happy', 'Yayyy! Besties! 🐾❤️');
     triggerConfetti(120);
-    this.disabled = true;
-    this.innerHTML = "🎉 Congratulations! Dosti Deal Signed! 🤝";
-    alert("Doggie says: Woohoo! Dumbo has officially accepted the friendship! No takebacks allowed! 🐶✨");
+    switchScene('realLetter');
   });
 
   /* Download Keepsake Certificate */
   document.getElementById('btnDownloadCert').addEventListener('click', function() {
-    SFX.success();
     var canvas = document.getElementById('certCanvas');
     var ctx = canvas.getContext('2d');
 
@@ -1080,12 +1091,12 @@
     ctx.fillStyle = '#e2d9f3';
     ctx.font = '20px sans-serif';
     ctx.fillText('For successfully surviving multiple verification roasts,', 400, 335);
-    ctx.fillText('and officially joining the elite tier of Great Friends.', 400, 370);
+    ctx.fillText('and officially pressing YES to an unstoppable friendship.', 400, 370);
 
     // Badges / Tags
     ctx.fillStyle = '#ff5722';
     ctx.font = 'bold 16px sans-serif';
-    ctx.fillText('[ 100% CERTIFIED DUMBO ]  •  [ 0% ANGER ]  •  [ 100% BEST FRIEND MATERIAL ]', 400, 430);
+    ctx.fillText('[ 100% CERTIFIED DUMBO ]  •  [ 0% ESCAPE ]  •  [ 100% BEST FRIEND MATERIAL ]', 400, 430);
 
     // Signatures
     ctx.strokeStyle = '#ffffff';
